@@ -1,28 +1,27 @@
-var crystalGen  = function crystalGenerator(min, max) {
+$(document).ready(function(){
+
+
+function crystalGenerator() {
     var gem = Math.floor(Math.random() * (120 - 19 +1)) + 19;
     return gem;
 }
 
-for (var i = 0; i < 120; i++) {
-    console.log(crystalGenerator());
-}
-
- var gem1Gen = function gem1Generator() {
+function gemGenerator() {
     var gem1 = Math.floor((Math.random()*12)+1);
     return gem1;
 }
 
-var gem2Gen = function gem2Generator() {
+function gem2Generator() {
     var gem2 = Math.floor((Math.random()*12)+1);
     return gem2;
 }
 
-var gem3Gen = function gem3Generator() {
+function gem3Generator() {
     var gem3 = Math.floor((Math.random()*12)+1);
     return gem3;
 }
 
-var gem4Gen = function gem4Generator() {
+function gem4Generator() {
     var gem4 = Math.floor((Math.random()*12)+1);
     return gem4;
 }
@@ -36,19 +35,17 @@ var counter = 0;
 var wins = 0;
 var losses = 0;
 var numberSoFar = 0;
-var score = 0;
+var randomNum = 0;
+$("#wins").text(wins);
+$("#losses").text(losses);
 
-$(document).ready(function(){
+$("#randomNum").text(crystalGenerator());
 
-$("#game").html("hello world");
 
-var crys1 = $("#crystal1").attr("data", gem1Generator());
-var crys2 = $("#crystal2").attr("data", gem2Generator());
-var crys3 = $("#crystal3").attr("data", gem3Generator());
-var crys4 = $("#crystal4").attr("data", gem4Generator());
-
-$("#randomNum").html("crystalGen");
-
+$("#gem1").html("<img src=" + "assets/images/gem1.png" + " value=" + gemGenerator + " class='container'" + ">");
+$("#gem2").html("<img src=" + "assets/images/gem2.png" + " value=" + gemGenerator + " class='container'" + ">");
+$("#gem3").html("<img src=" + "assets/images/gem3.png" + " value=" + gemGenerator + " class='container'" + ">");
+$("#gem4").html("<img src=" + "assets/images/gem4.png" + " value=" + gemGenerator + " class='container'" + ">");
 
 
 })
