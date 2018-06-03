@@ -6,6 +6,37 @@ function crystalGenerator() {
     return gem;
 }
 
+function reset() {
+    $("#randomNum").html(crystalGenerator());
+
+    numberSoFar = 0;
+    $("#currentScore").html("Current score: " + numberbSoFar);
+
+    wins = 0;
+    $("#wins").html("Wins: " + wins);
+
+    losses = 0;
+    $("#losses").html("Losses: " + losses);
+
+    gem1 = Math.floor((Math.random()*12)+1);
+    console.log(gem1);
+
+    gem2 = Math.floor((Math.random()*12)+1); 
+    console.log(gem2);
+
+    gem3 = Math.floor((Math.random()*12)+1);
+    console.log(gem3);
+
+    gem4 = Math.floor((Math.random()*12)+1);
+    console.log(gem4);
+
+$("#gem1").html("<img src=" + "assets/images/gem1.png" + " value=" + gem1 + " class='container'" + ">");
+$("#gem2").html("<img src=" + "assets/images/gem2.png" + " value=" + gem2 + " class='container'" + ">");
+$("#gem3").html("<img src=" + "assets/images/gem3.png" + " value=" + gem3 + " class='container'" + ">");
+$("#gem4").html("<img src=" + "assets/images/gem4.png" + " value=" + gem4 + " class='container'" + ">");
+
+}
+
 console.log(crystalGenerator());
 
 var counter = 0;
@@ -40,11 +71,15 @@ $("img").on("click", function(){
     if (newNumbSoFar === crystalGenerator()) {
         wins++ ;
         $("#wins").html("Wins: " + wins);
+        alert("You win!");
+        reset();
     }
 
     else if (newNumbSoFar > crystalGenerator()) {
         losses++ ;
         $("#losses").html("Losses: " + losses);
+        alert("You've went over!");
+        reset();
     }
     
 })
