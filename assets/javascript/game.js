@@ -1,7 +1,7 @@
 $(document).ready(function(){
 
 
-var computerPick = function crystalGenerator() {
+function crystalGenerator() {
     var gem = Math.floor(Math.random() * (120 - 19 +1)) + 19;
     return gem;
 }
@@ -33,23 +33,23 @@ $("#gem2").html("<img src=" + "assets/images/gem2.png" + " value=" + gem2 + " cl
 $("#gem3").html("<img src=" + "assets/images/gem3.png" + " value=" + gem3 + " class='container'" + ">");
 $("#gem4").html("<img src=" + "assets/images/gem4.png" + " value=" + gem4 + " class='container'" + ">");
 
-$("gem").on("click", function(){
+$("img").on("click", function(){
     var newNumbSoFar = numberSoFar += parseInt($(this).attr("value"));
     $("#currentScore").html("Current Score: " + newNumbSoFar);
 
-    if (newNumbSoFar === computerPick) {
+    if (newNumbSoFar === crystalGenerator()) {
         wins++ ;
         $("#wins").html("Wins: " + wins);
     }
 
-    else if (newNumbSoFar > computerPick) {
+    else if (newNumbSoFar > crystalGenerator()) {
         losses++ ;
         $("#losses").html("Losses: " + losses);
     }
     
 })
 
-
+})
 
 
 
