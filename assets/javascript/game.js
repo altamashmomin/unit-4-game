@@ -14,14 +14,14 @@ var losses = 0;
 var numberSoFar = 0;
 var randomNum = 0;
 
-$("#wins").text(wins);
-$("#losses").text(losses);
+$("#wins").text("Wins: " + wins);
+$("#losses").text("Losses: " + losses);
 
 $("#randomNum").text(crystalGenerator());
 
 gem1 = Math.floor((Math.random()*12)+1);
     console.log(gem1);
-gem2 = Math.floor((Math.random()*12)+1);
+gem2 = Math.floor((Math.random()*12)+1); 
     console.log(gem2);
 gem3 = Math.floor((Math.random()*12)+1);
     console.log(gem3);
@@ -35,16 +35,16 @@ $("#gem4").html("<img src=" + "assets/images/gem4.png" + " value=" + gem4 + " cl
 
 $("gem").on("click", function(){
     var newNumbSoFar = numberSoFar += parseInt($(this).attr("value"));
-    $("#currentScore").html(newNumbSoFar);
+    $("#currentScore").html("Current Score: " + newNumbSoFar);
 
     if (newNumbSoFar === computerPick) {
         wins++ ;
-        $("#wins").html(wins);
+        $("#wins").html("Wins: " + wins);
     }
 
     else if (newNumbSoFar > computerPick) {
         losses++ ;
-        $("#losses").html(losses);
+        $("#losses").html("Losses: " + losses);
     }
     
 })
